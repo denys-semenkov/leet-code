@@ -1,0 +1,18 @@
+func twoSum(nums []int, target int) []int {
+    indexes := []int{}
+    lenght := len(nums)
+    
+    loop:
+    for i := 0; i < lenght; i++ {
+            for j := i+1; j < lenght; j++ {
+                if ((nums[i] + nums[j]) == target) {
+                    indexes = append(indexes, i)
+                    indexes = append(indexes, j)
+                    break loop
+                }
+            }
+        
+    }
+    
+    return indexes
+}
