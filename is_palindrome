@@ -1,0 +1,14 @@
+ func isPalindrome(x int) bool {
+      s := strconv.Itoa(x)
+    var result string
+    
+for _, v := range s {
+      result = string(v) + result
+   }
+    
+    if (s == result) {
+        return true
+    }
+    
+    return false
+}
