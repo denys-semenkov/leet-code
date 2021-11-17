@@ -1,0 +1,35 @@
+func romanToInt(s string) int {
+    chars := []rune(s)
+    charsLen := len(chars) - 1
+    romanToInt := map[string]int{
+        "I": 1,
+        "V": 5,
+        "X": 10,
+        "L": 50,
+        "C": 100,
+        "D": 500,
+        "M": 1000,
+    }
+    result := 0
+    
+    for i := charsLen; i >= 0; i-- {
+        number := romanToInt[string(chars[i])]
+        if (i == 0) {
+            result += number
+            return result
+        }
+        
+        prevNumber := romanToInt[string(chars[i-1])]
+        
+        if (number > prevNumber) {
+            result += number-prevNumber
+            i--
+        } else {
+            result += number
+        }
+        
+        fmt.Println(romanToInt[string(chars[i])])
+    }
+    
+    return result
+}
